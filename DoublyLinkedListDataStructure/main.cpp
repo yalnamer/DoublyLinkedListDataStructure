@@ -5,6 +5,8 @@ int main()
 {
 	DoublyLinkedList<int> list;
 
+	list.remove(20);
+
 	list.insert(15);
 	list.print();
 
@@ -17,10 +19,20 @@ int main()
 	list.insert(13,true);
 	list.print();
 
-
-	list.insert(414);
+	list.insert(24);
 	list.print();
 
-	list.insert(1322, true);
+
+	list.remove(2);
 	list.print();
+
+	list.remove(0);
+	list.print();
+
+	list.remove(200);
+	list.print();
+
+	list.remove(2);
+	list.print();
+
 }
