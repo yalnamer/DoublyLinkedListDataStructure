@@ -21,6 +21,14 @@ template <class T> class DoublyLinkedList
 		//remove and element from the list
 		void remove(int position);
 		
+		//Reverse list iteratively
+		void reverse();
+
+		//Reverse the list recurssively
+		void reverse(Node<T>* node);
+
+		Node<T>* getHeadNode() { return head; }
+		
 		//Print list
 		void print();
 
@@ -186,6 +194,61 @@ inline void DoublyLinkedList<T>::remove(int position)
 	delete(temp); //free the memory of the old element
 	length--;
 
+
+
+}
+
+template<class T>
+inline void DoublyLinkedList<T>::reverse()
+{
+	if (length == 0)
+		return;
+
+	Node<T>* temp = head; //Point to first element
+
+	//traverse through the entire list
+	while (temp != nullptr)
+	{
+
+		//If next is null, it means it's originally the end, but now it gets reversed
+		if (temp->next == nullptr)
+			head = temp;
+
+		
+		//Swap links
+		Node<T>* temp2 = temp->next;
+		temp->next = temp->prev;
+
+		
+		temp->prev = temp2;
+
+
+		temp = temp2; //>Go to next temp
+	}
+
+}
+
+template<class T>
+inline void DoublyLinkedList<T>::reverse(Node<T>* node)
+{
+	
+	//If the node is the final element
+	if (node->next == nullptr)
+	{
+		head = node; //> let the head point to this node, making it the first element
+		
+		node->next = node->prev; //>Reverse the next link
+		node->prev = nullptr; //>Set the previous element to null, indicating start of list
+		return;
+	}
+
+	reverse(node->next); //> Call function on next node
+
+	Node<T>* temp = node->next; //>Store next element in temp pointer
+
+	//Reverse links
+	node->next = node->prev; //> The next pointer is reveresed
+	node->prev = temp; //> The previous pointer is now reveresed 
 
 
 }

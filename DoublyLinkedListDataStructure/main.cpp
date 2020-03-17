@@ -32,7 +32,17 @@ int main()
 	list.remove(200);
 	list.print();
 
-	list.remove(2);
+	//list.remove(2);
+	//list.print();
+
+	//list.reverse();
+	list.reverse(list.getHeadNode());
 	list.print();
 
+	//list.reverse();
+	list.reverse(list.getHeadNode());
+	list.print();
+
+	//list.reverse(list.getHeadNode());
+	//list.print();
 }
