@@ -11,7 +11,7 @@
 *.sln.docstates
 
 *.vcxproj.filters
-*.vcxproj
+*.vcxproj.user
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
